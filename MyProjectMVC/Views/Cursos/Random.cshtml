@@ -1,0 +1,26 @@
+﻿@model MyProjectMVC.Models.ViewModels.MeuMiniCursoViewModel
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*
+    Um exemplo de comentário    
+*@
+
+@{ 
+    var className = Model.MiniCursos.Count > 5 ? "popular" : null;
+}
+<h2 class="@className">@Model.Curso.Nome </h2>
+    @if (Model.MiniCursos.Count == 0)
+    {
+        <text> Nenhum minicurso </text>
+    }
+    else
+    {
+        <ul>
+            @foreach (var miniCurso in Model.MiniCursos)
+            {
+                <li> @miniCurso.Nome </li>
+            }
+        </ul>
+    }
